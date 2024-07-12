@@ -9,24 +9,24 @@ Stopwatch sw = Stopwatch.StartNew();
 TimeSpan elapsedTime = sw.Elapsed;
 
 
-Console.WriteLine("Start regular methods...");
+Console.WriteLine("Start regular method...");
 sw.Start();
 Counting(num1);
 Counting(num2);
 sw.Stop();
 elapsedTime = sw.Elapsed;
-Console.WriteLine($"Общее время выполнения: {elapsedTime}");
+Console.WriteLine($"Total execution time: {elapsedTime}");
 
-Console.WriteLine("Start Asynk sposob...");
+Console.WriteLine("Start Async method...");
 sw.Reset();
 sw.Start();
 await CountingAsync(num1);
 await CountingAsync(num2);
 sw.Stop();
 elapsedTime = sw.Elapsed;
-Console.WriteLine($"Общее время выполнения: {elapsedTime}");
+Console.WriteLine($"Total execution time: {elapsedTime}");
 
-Console.WriteLine("Start PARALLEL Asynk sposob...");
+Console.WriteLine("Start PARALLEL Async method...");
 //В данном случае задачи фактически запускаются при определении. А оператор await применяется лишь тогда,
 //когда нам нужно дождаться завершения асинхронных операций - то есть в конце программы. 
 sw.Reset();
@@ -39,7 +39,7 @@ await num1Task;
 await num2Task;
 sw.Stop();
 elapsedTime = sw.Elapsed;
-Console.WriteLine($"Общее время выполнения: {elapsedTime}");
+Console.WriteLine($"Total execution time: {elapsedTime}");
 
 
 Console.WriteLine("Finish program.");
@@ -53,7 +53,7 @@ void Counting(int[] num)
         Console.Write($"{num[i]} ");
         Thread.Sleep(1000);
     }
-    Console.WriteLine($"\nвыполнено");
+    Console.WriteLine($"\nDone");
 }
 
 async Task CountingAsync(int[] num) 
